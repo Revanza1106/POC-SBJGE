@@ -91,9 +91,9 @@ p{margin:0}
 .about-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:72px;align-items:center}
 .about-media{position:relative}
 .about-media img{color:transparent;font-size:0;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius);background:var(--navy-800)}
-.about-badge{position:absolute;right:-24px;bottom:32px;background:var(--navy-700);color:#fff;padding:22px 26px;border-radius:var(--radius);max-width:240px;box-shadow:0 20px 40px -20px rgba(11,26,61,.6)}
-.about-badge b{display:block;font-size:30px;font-weight:600}
-.about-badge span{font-size:13.5px;color:rgba(255,255,255,.8)}
+.about-badge{position:absolute;z-index:1;right:-24px;bottom:32px;background:var(--navy-700);color:#fff;padding:24px 28px;border-radius:var(--radius);max-width:280px;box-shadow:0 20px 40px -20px rgba(11,26,61,.6)}
+.about-badge b{display:block;font-size:44px;line-height:1;font-weight:600;color:var(--flame)}
+.about-badge span{display:block;margin-top:10px;font-size:16px;line-height:1.45;font-weight:500;color:rgba(255,255,255,.92)}
 .about-copy h2{font-size:clamp(28px,3.4vw,40px);margin-top:16px;color:var(--navy-900)}
 .about-copy p{margin-top:20px;color:var(--muted);font-size:17px}
 .about-list{list-style:none;padding:0;margin:32px 0 0;display:grid;gap:14px}
@@ -256,7 +256,9 @@ a.contact-item:hover span{text-decoration:underline;text-underline-offset:4px}
   .legal-row{grid-template-columns:1fr;gap:4px}
   .partner-certs{padding:20px 16px}
   .kbli th,.kbli td{padding:12px 14px}
-  .about-badge{position:static;margin-top:-40px;margin-left:16px;margin-right:16px;max-width:none}
+  .about-badge{position:relative;right:auto;bottom:auto;margin-top:-32px;margin-left:16px;margin-right:16px;max-width:none;padding:22px 24px}
+  .about-badge b{font-size:48px}
+  .about-badge span{font-size:17px}
 }
 </style>
 </head>
@@ -305,7 +307,7 @@ a.contact-item:hover span{text-decoration:underline;text-underline-offset:4px}
   <div class="wrap about-grid">
     <div class="about-media reveal">
       <img src="images/drilling-rig.jpg" alt="Drilling rig tower on an onshore oil field" loading="lazy" width="1200" height="1500">
-      <div class="about-badge"><b>2</b><span>international oilfield manufacturers represented in Indonesia</span></div>
+      <div class="about-badge"><b>2</b><span>International oilfield manufacturers represented in Indonesia</span></div>
     </div>
     <div class="about-copy reveal">
       <p class="eyebrow">About Us</p>
