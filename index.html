@@ -111,8 +111,9 @@ p{margin:0}
 .leader-copy p:last-child{margin-top:16px;max-width:640px;color:var(--muted);font-size:17px}
 
 /* ---------- Organization chart (inside About) ---------- */
-.org{margin-top:72px}
-.org-head{max-width:640px;margin-bottom:40px}
+.org-section{margin-top:104px;padding-top:88px;border-top:1px solid var(--line)}
+.org{margin-top:48px}
+.org-head{max-width:640px}
 .org-head h3{font-size:clamp(22px,2.4vw,28px);margin-top:14px;color:var(--navy-900)}
 .org-tree{display:flex;flex-direction:column;align-items:center}
 .org-row{display:flex;justify-content:center;width:100%;position:relative}
@@ -134,7 +135,8 @@ p{margin:0}
 .org-node.is-top .org-name{color:#fff;font-size:17px}
 .org-node.is-mid{border-top-color:var(--flame)}
 @media (max-width:820px){
-  .org{margin-top:56px}
+  .org-section{margin-top:72px;padding-top:64px}
+  .org{margin-top:32px}
   .org-tree{align-items:stretch}
   .org-row{flex-direction:column;align-items:stretch;gap:10px;width:auto}
   .org-row + .org-row{margin-top:10px;padding-left:20px;border-left:1.5px solid var(--navy-500);margin-left:12px}
@@ -364,28 +366,14 @@ a.contact-item:hover span{text-decoration:underline;text-underline-offset:4px}
     </div>
   </div>
 
-  <!-- ---- Leadership ---- -->
+  <!-- ---- Organization ---- -->
   <div class="wrap">
-    <div class="leader reveal">
-      <figure class="leader-card">
-        <div class="leader-photo">
-          <img src="images/chairman%20profile.jpeg" alt="Mr. Jimmy Joseph, Executive Chairman of PT Sumber Berkat JICISA Global Energy" width="800" height="1002" loading="lazy">
-        </div>
-        <figcaption>
-          <b class="leader-name">Mr. Jimmy Joseph</b>
-          <span class="leader-role"> President Director </span>
-        </figcaption>
-      </figure>
-      <div class="leader-copy">
-        <p class="eyebrow">Leadership</p>
-        <p>Mr. Jimmy Joseph leads PT Sumber Berkat JICISA Global Energy and oversees its partnership with FulSailing in Indonesia, connecting the manufacturer's drilling and completion technology with local operators and contractors.</p>
-      </div>
-    </div>
-    <div class="org reveal">
-      <div class="org-head">
+    <div class="org-section">
+      <div class="org-head reveal">
         <p class="eyebrow">Organization</p>
         <h3>Organization structure of PT Sumber Berkat JICISA Global Energy.</h3>
       </div>
+    <div class="org reveal">
       <div class="org-tree">
         <div class="org-row">
           <div class="org-item"><div class="org-node is-top"><span class="org-role">President Director</span><span class="org-name">Jimmy Joseph</span></div></div>
@@ -403,6 +391,7 @@ a.contact-item:hover span{text-decoration:underline;text-underline-offset:4px}
           <div class="org-item"><div class="org-node"><span class="org-role">Procurement Manager</span><span class="org-name">Jeremia</span></div></div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 
