@@ -101,12 +101,51 @@ p{margin:0}
 .about-list svg{flex:none;width:22px;height:22px;color:var(--flame);margin-top:2px}
 
 /* ---------- Leadership (inside About) ---------- */
-.leader{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:72px;align-items:center;margin-top:104px;padding-top:88px;border-top:1px solid var(--line)}
-.leader-photo{margin:0;border-radius:var(--radius);overflow:hidden;background:#E9EBF0;aspect-ratio:4/5}
+.leader{display:grid;grid-template-columns:200px minmax(0,1fr);gap:48px;align-items:start;margin-top:104px;padding-top:88px;border-top:1px solid var(--line)}
+.leader-card{margin:0}
+.leader-photo{border-radius:var(--radius);overflow:hidden;background:#E9EBF0;aspect-ratio:4/5}
 .leader-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.leader h3{font-size:clamp(28px,3.4vw,40px);margin-top:16px;color:var(--navy-900)}
-.leader-role{margin-top:10px;font-size:17px;font-weight:600;color:var(--navy-500)}
-.leader-copy p:last-child{margin-top:20px;max-width:560px;color:var(--muted);font-size:17px}
+.leader-card figcaption{margin-top:14px}
+.leader-name{display:block;font-size:17px;font-weight:600;line-height:1.3;color:var(--navy-900)}
+.leader-role{display:block;margin-top:4px;font-size:14px;font-weight:500;line-height:1.4;color:var(--navy-500)}
+.leader-copy p:last-child{margin-top:16px;max-width:640px;color:var(--muted);font-size:17px}
+
+/* ---------- Organization chart (inside About) ---------- */
+.org{margin-top:72px}
+.org-head{max-width:640px;margin-bottom:40px}
+.org-head h3{font-size:clamp(22px,2.4vw,28px);margin-top:14px;color:var(--navy-900)}
+.org-tree{display:flex;flex-direction:column;align-items:center}
+.org-row{display:flex;justify-content:center;width:100%;position:relative}
+.org-row + .org-row{margin-top:22px}
+.org-row + .org-row::before{content:"";position:absolute;top:-22px;left:50%;height:22px;border-left:1.5px solid var(--navy-500)}
+.org-item{position:relative;flex:1 1 0;max-width:224px;padding:22px 8px 0}
+.org-row:first-child .org-item{padding-top:0;max-width:300px}
+.org-row + .org-row .org-item::before,
+.org-row + .org-row .org-item::after{content:"";position:absolute;top:0;width:50%;border-top:1.5px solid var(--navy-500)}
+.org-row + .org-row .org-item::before{left:0}
+.org-row + .org-row .org-item::after{left:50%;height:22px;border-left:1.5px solid var(--navy-500)}
+.org-row + .org-row .org-item:first-child::before{border-top:0}
+.org-row + .org-row .org-item:last-child::after{border-top:0}
+.org-node{height:100%;background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy-700);border-radius:var(--radius);padding:16px 14px;text-align:center}
+.org-role{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-500);line-height:1.4}
+.org-name{display:block;margin-top:6px;font-size:15.5px;font-weight:600;color:var(--navy-900);line-height:1.3}
+.org-node.is-top{background:var(--navy-700);border-color:var(--navy-700);border-top-color:var(--flame)}
+.org-node.is-top .org-role{color:rgba(255,255,255,.7)}
+.org-node.is-top .org-name{color:#fff;font-size:17px}
+.org-node.is-mid{border-top-color:var(--flame)}
+@media (max-width:820px){
+  .org{margin-top:56px}
+  .org-tree{align-items:stretch}
+  .org-row{flex-direction:column;align-items:stretch;gap:10px;width:auto}
+  .org-row + .org-row{margin-top:10px;padding-left:20px;border-left:1.5px solid var(--navy-500);margin-left:12px}
+  .org-row + .org-row::before{display:none}
+  .org-item,.org-row:first-child .org-item{max-width:none;padding:0}
+  .org-row + .org-row .org-item::before{display:none}
+  .org-row + .org-row .org-item::after{display:block;top:50%;left:-20px;width:20px;height:0;border-left:0;border-top:1.5px solid var(--navy-500)}
+  .org-row + .org-row .org-item:last-child::after{border-top:1.5px solid var(--navy-500)}
+  .org-node{text-align:left;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 16px}
+  .org-name{margin-top:0;text-align:right}
+}
 
 /* ---------- Partner band (inside About) ---------- */
 #about{padding-bottom:0}
@@ -227,8 +266,7 @@ a.contact-item:hover span{text-decoration:underline;text-underline-offset:4px}
   .about-badge{right:16px}
   .about-media img{aspect-ratio:16/10}
   .partner-intro{grid-template-columns:minmax(0,1fr);gap:40px}
-  .leader{grid-template-columns:minmax(0,1fr);gap:36px;margin-top:72px;padding-top:64px}
-  .leader-photo{max-width:340px}
+  .leader{grid-template-columns:170px minmax(0,1fr);gap:32px;margin-top:72px;padding-top:64px}
 }
 @media (max-width:820px){
   .section{padding:72px 0}
@@ -260,6 +298,8 @@ a.contact-item:hover span{text-decoration:underline;text-underline-offset:4px}
   .kbli th,.kbli td{padding:12px 14px}
   .about-badge{position:relative;right:auto;bottom:auto;margin-top:-32px;margin-left:16px;margin-right:16px;max-width:none;padding:22px 24px}
   .about-badge b{font-size:48px}
+  .leader{grid-template-columns:1fr;gap:24px}
+  .leader-card{max-width:170px}
   .about-badge span{font-size:17px}
 }
 </style>
@@ -327,14 +367,41 @@ a.contact-item:hover span{text-decoration:underline;text-underline-offset:4px}
   <!-- ---- Leadership ---- -->
   <div class="wrap">
     <div class="leader reveal">
-      <figure class="leader-photo">
-        <img src="images/chairman profile.jpeg" alt="Mr. Jimmy Joseph, Executive Chairman of PT Sumber Berkat JICISA Global Energy" width="800" height="1002" loading="lazy">
+      <figure class="leader-card">
+        <div class="leader-photo">
+          <img src="images/chairman%20profile.jpeg" alt="Mr. Jimmy Joseph, Executive Chairman of PT Sumber Berkat JICISA Global Energy" width="800" height="1002" loading="lazy">
+        </div>
+        <figcaption>
+          <b class="leader-name">Mr. Jimmy Joseph</b>
+          <span class="leader-role"> President Director </span>
+        </figcaption>
       </figure>
       <div class="leader-copy">
         <p class="eyebrow">Leadership</p>
-        <h3>Mr. Jimmy Joseph</h3>
-        <p class="leader-role">Executive Chairman, PT Sumber Berkat JICISA Global Energy</p>
         <p>Mr. Jimmy Joseph leads PT Sumber Berkat JICISA Global Energy and oversees its partnership with FulSailing in Indonesia, connecting the manufacturer's drilling and completion technology with local operators and contractors.</p>
+      </div>
+    </div>
+    <div class="org reveal">
+      <div class="org-head">
+        <p class="eyebrow">Organization</p>
+        <h3>Organization structure of PT Sumber Berkat JICISA Global Energy.</h3>
+      </div>
+      <div class="org-tree">
+        <div class="org-row">
+          <div class="org-item"><div class="org-node is-top"><span class="org-role">President Director</span><span class="org-name">Jimmy Joseph</span></div></div>
+        </div>
+        <div class="org-row">
+          <div class="org-item"><div class="org-node is-mid"><span class="org-role">Advisor Manager</span><span class="org-name">Edi Wijaya</span></div></div>
+          <div class="org-item"><div class="org-node is-mid"><span class="org-role">Operations Manager</span><span class="org-name">Jhony Minjte</span></div></div>
+          <div class="org-item"><div class="org-node is-mid"><span class="org-role">Finance Manager</span><span class="org-name">Djusin Liusvia</span></div></div>
+        </div>
+        <div class="org-row">
+          <div class="org-item"><div class="org-node"><span class="org-role">Technical Manager</span><span class="org-name">Tommy</span></div></div>
+          <div class="org-item"><div class="org-node"><span class="org-role">Legal / HR Manager</span><span class="org-name">Glay</span></div></div>
+          <div class="org-item"><div class="org-node"><span class="org-role">HSE Manager</span><span class="org-name">Nando</span></div></div>
+          <div class="org-item"><div class="org-node"><span class="org-role">Marketing Manager</span><span class="org-name">Elly</span></div></div>
+          <div class="org-item"><div class="org-node"><span class="org-role">Procurement Manager</span><span class="org-name">Jeremia</span></div></div>
+        </div>
       </div>
     </div>
   </div>
